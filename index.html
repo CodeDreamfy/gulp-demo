@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    const vpMeta = document.createElement('meta');
+    const meta = document.querySelector('meta[name="viewport"]');
+    if(meta){
+      meta.setAttribute('content', 'initial-scale=' + 1 / window.devicePixelRatio + ',user-scalable=no');
+    }else {
+      vpMeta.setAttribute('name', 'viewport');
+      vpMeta.setAttribute('content', 'initial-scale=' + 1 / window.devicePixelRatio + ',user-scalable=no');
+      document.documentElement.firstElementChild.appendChild(vpMeta);
+    }
+  </script>
+  <link rel="stylesheet" href="./dist/css/main.min.css">
+</head>
+<body>
+  <div class="wrapper">
+    
+  </div>
+  <script src="./src/lib/js/jquery.js"></script>
+  <script src="./src/lib/js/swiper.min.js"></script>
+  <script src="./dist/js/main.min.js"></script>
+</body>
+</html>
