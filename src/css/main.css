@@ -1,1 +1,4 @@
+@import "./lib/normalize.css";
+@import "./lib/reset.css";
+
 @import "./module/index.css";

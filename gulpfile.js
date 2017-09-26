@@ -1,18 +1,17 @@
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
+//const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const del = require('del');
 const cssmqpacker = require('csswring');
 const concat = require('gulp-concat');
-const minify = require('gulp-minify-css')
 
 const _postcss = require('gulp-postcss');
 const postcss = require('postcss');
-const _import = require('postcss-import');
-const press = require('press');
+const precss = require('precss');   // 一个顶好几个
 const cssnext = require('postcss-cssnext'); //带有autoprefix
 const px2rem = require('postcss-px2rem');
+const url = require('postcss-url');
 const cssnano = require('cssnano');
 
 const imagemin = require('gulp-imagemin');
@@ -21,27 +20,21 @@ const uglify = require('gulp-uglify');
 const notify = require('gulp-notify');
 const filter = require("gulp-filter");
 
+const webpack = require('webpack-stream');
+
 gulp.task('postcss', ()=>{
-  const file = filter('./src/css/lib/*.css', {restore: true});
-  const processors = [
-    _import,
-    cssnext({
-      features: {
-        autoprefixer: {}
-      }
-    }),
-    cssnano(),
-    cssmqpacker,
+  const file = filter('src/css/lib/*', {restore: true});
+  const plugins = [
+    precss({parser: require('postcss-scss')}),
     px2rem({remUnit: 100}),
+    cssmqpacker,
+    cssnano()
   ];
-  return gulp.src(['./src/css/lib/*.css','src/css/main.css'])
-    .pipe(file)
-    .pipe(_postcss(processors))
+  return gulp.src('./src/css/main.css')
+    .pipe(_postcss(plugins))
     .on('error', errorHandler)
-    .pipe(file.restore)
     .pipe(concat('main.css'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(minify())
     .pipe(gulp.dest('./dist/css/'))
     .pipe(notify("css build success!"));
 });
@@ -50,15 +43,22 @@ gulp.task('postcss', ()=>{
 gulp.task('toes', ()=>{
   return gulp.src('src/js/main.js')
     .pipe(sourcemaps.init())
-    .pipe(babel())
+    .pipe(webpack({
+      //watch: true,
+      module: {
+        loaders: [
+          { test: /\.js$/, loader: 'babel-loader' },
+        ],
+      },
+    }))
     .pipe(sourcemaps.write("."))
-    .pipe(rename({suffix: '.min'}))
+    .pipe(rename('main.min.js'))
     .pipe(gulp.dest('./dist/js'))
     .pipe(notify("js build success!"));
 })
 
 gulp.task('imgmin', ()=>{
-  return gulp.src('src/img')
+  return gulp.src('src/img/**/*')
     .pipe(imagemin())
     .pipe(gulp.dest('dist/img'))
     .pipe(notify("image build success!"));
@@ -75,15 +75,15 @@ gulp.task('build', ['toes','postcss', 'imgmin'], ()=>{
 })
 
 gulp.task('clean', ()=> {
-  return del(['./dist/'])
+  return del(['./dist/**/*']);
 })
 
 gulp.task('watch', ()=> {
-  gulp.watch('./src/css/**/*.css', ['postcss'])
-  gulp.watch('./src/js/**/*.js', ['toes'])
+  gulp.watch('./src/css/**/*.css', ['postcss']);
+  gulp.watch('./src/js/**/*.js', ['toes']);
 })
 
-gulp.task('default', ['clean', 'postcss', 'toes', 'watch']);
+gulp.task('default', ['clean', 'postcss', 'toes','imgmin', 'watch']);
 
 function errorHandler(error) {
   console.log(error.message);

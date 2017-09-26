@@ -1,2 +1,3 @@
-const obj = {};
-console.log(obj)
+import swiperIndex from './module/common';
+
+swiperIndex()
