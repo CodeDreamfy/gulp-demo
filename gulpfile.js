@@ -1,10 +1,11 @@
 const gulp = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
-//const babel = require('gulp-babel');
 const rename = require('gulp-rename');
 const del = require('del');
 const cssmqpacker = require('csswring');
 const concat = require('gulp-concat');
+//const shell = require('gulp-shell');
+const changed = require('gulp-changed');
 
 const _postcss = require('gulp-postcss');
 const postcss = require('postcss');
@@ -31,6 +32,7 @@ gulp.task('postcss', ()=>{
     cssnano()
   ];
   return gulp.src('./src/css/main.css')
+    .pipe(changed('./dist/css'))
     .pipe(_postcss(plugins))
     .on('error', errorHandler)
     .pipe(concat('main.css'))
@@ -42,9 +44,10 @@ gulp.task('postcss', ()=>{
 
 gulp.task('toes', ()=>{
   return gulp.src('src/js/main.js')
+    .pipe(changed('./dist/js'))
     .pipe(sourcemaps.init())
     .pipe(webpack({
-      //watch: true,
+      watch: true,
       module: {
         loaders: [
           { test: /\.js$/, loader: 'babel-loader' },
@@ -59,6 +62,7 @@ gulp.task('toes', ()=>{
 
 gulp.task('imgmin', ()=>{
   return gulp.src('src/img/**/*')
+    .pipe(changed('./dist/img'))
     .pipe(imagemin())
     .pipe(gulp.dest('dist/img'))
     .pipe(notify("image build success!"));
@@ -75,15 +79,18 @@ gulp.task('build', ['toes','postcss', 'imgmin'], ()=>{
 })
 
 gulp.task('clean', ()=> {
-  return del(['./dist/**/*']);
+  return del(['./dist/**/*'])
 })
 
 gulp.task('watch', ()=> {
   gulp.watch('./src/css/**/*.css', ['postcss']);
   gulp.watch('./src/js/**/*.js', ['toes']);
+  gulp.watch('./src/img/**/*', ['imgmin']);
 })
 
-gulp.task('default', ['clean', 'postcss', 'toes','imgmin', 'watch']);
+gulp.task('default', ['clean', 'postcss', 'toes','imgmin', 'watch'], function(){
+  //gulp.task('greet', shell.task('anywhere'))
+});
 
 function errorHandler(error) {
   console.log(error.message);

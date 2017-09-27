@@ -1,0 +1,102 @@
+.slide3 {
+  .slide-title {
+    height: 55px;
+    background: url(../img/slide3/slide-tit-bg.png) no-repeat center center;
+    background-size: 229px 55px;
+  }
+  .slide-wrap {
+    padding: 0; top: 36px; position: relative;
+    .tab-1 > div {
+      width: 100%;
+      margin-bottom: 46px;
+      transform: translateY(100%); opacity: 0;
+      &.inner-item4 { margin-bottom: 26px; }
+      &::last-child {
+        margin-bottom: 0;
+      }
+    }
+    .tab-1 {
+      position: relative; z-index: 1;
+      transition: all 300ms;
+    }
+    .tab-1.hide {
+      height: 0; opacity: 0;
+    }
+    .tab-2 { 
+      width: 100%; height: 0;
+      background: url(../img/slide3/tab2-bg.png) no-repeat center;
+      background-size: 525px 963px;
+      transition: all 600ms; position: relative; z-index: 2;
+    }
+    .tab-2.tabmoreAni {
+      height: 993px;
+    }
+    .inner-item1 {
+      height: 116px;
+      background: url(../img/slide3/c1.png) no-repeat center center;
+      background-size: 304px 116px;
+    }
+    .inner-item2 {
+      height: 104px;
+      background: url(../img/slide3/c2.png) no-repeat center center;
+      background-size: 256px 104px;
+    }
+    .inner-item3 {
+      height: 105px;
+      background: url(../img/slide3/c3.png) no-repeat center center;
+      background-size: 279px 105px;
+    }
+    .inner-item4 {
+      height: 118px;
+      background: url(../img/slide3/c4.png) no-repeat center center;
+      background-size: 489px 118px;
+    }
+    .inner-item5 {
+      height: 165px;
+      background: url(../img/slide3/c5.png) no-repeat center center;
+      background-size: 340px 165px;
+    }
+    .morebtn {
+      position: absolute; bottom: -90px; left: 50%; margin-left: -137px;
+      transform: translateY(100%); opacity: 0;
+      width: 274px; height: 80px; border-radius: 12px;
+      border: 1px solid #999;
+      line-height: 80px; text-align: center; font-size: 26px;
+      color: #fff;
+      &:active {
+        color: #03c3e8; border-color: #03c3e8;
+      }
+    }
+    &.animate {
+      .inner-item1 {
+        animation: slide3Animate 600ms 300ms forwards;
+      }
+      .inner-item2 {
+        animation: slide3Animate 600ms 400ms forwards;
+      }
+      .inner-item3 {
+        animation: slide3Animate 600ms 500ms forwards;
+      }
+      .inner-item4 {
+        animation: slide3Animate 600ms 600ms forwards;
+      }
+      .inner-item5 {
+        animation: slide3Animate 600ms 700ms forwards;
+      }
+      .morebtn {
+        animation: slide3Animate 600ms 800ms forwards;
+      }
+    }
+  }
+}
+
+@keyframes slide3Animate {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

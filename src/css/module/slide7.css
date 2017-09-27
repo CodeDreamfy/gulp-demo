@@ -1,0 +1,27 @@
+.slide7 {
+  .slide-title {
+    height: 100px;
+    background: url(../img/slide7/slide-tit-bg.png) no-repeat center center;
+    background-size: 405px 100px;
+  }
+  .inner-item1 {
+    height: 315px; margin-top: 60px;
+    background: url(../img/slide7/c1.png) no-repeat center;
+    background-size: 652px 315px;
+  }
+  .inner-item2 {
+    height: 251px;
+    background: url(../img/slide7/c2.png) no-repeat center;
+    background-size: 636px 251px;
+  }
+  .inner-item3 {
+    height: 77px; margin-top: 40px;
+    background: url(../img/slide7/c3.png) no-repeat center;
+    background-size: 647px 77px;
+  }
+  .inner-item4 {
+    height: 193px; margin-top: 42px;
+    background: url(../img/slide7/c4.png) no-repeat center;
+    background-size: 636px 193px;
+  }
+}

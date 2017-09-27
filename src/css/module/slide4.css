@@ -1,0 +1,21 @@
+.slide4 {
+  .slide-title {
+    height: 55px;
+    background: url(../img/slide4/slide-tit-bg.png) no-repeat center center;
+    background-size: 281px 55px;
+  }
+  .slide-desc {
+    font-size: 21px; color: #fff; padding: 0 56px; line-height: 28px;
+    margin-top: 40px;
+  }
+  .inner-item1 {
+    height: 324px; margin-top: 24px;
+    background: url(../img/slide4/c1.png) no-repeat center;
+    background-size: 670px 324px;
+  }
+  .inner-item2 {
+    height: 622px;
+    background: url(../img/slide4/c2.png) no-repeat center;
+    background-size: 636px 622px;
+  }
+}

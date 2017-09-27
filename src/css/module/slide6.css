@@ -1,0 +1,26 @@
+.slide6 {
+  .slide-title {
+    height: 50px;
+    background: url(../img/slide6/slide-tit-bg.png) no-repeat center center;
+    background-size: 570px 50px;
+  }
+  .slide-desc {
+    font-size: 21px; color: #fff; padding: 0 56px; line-height: 28px;
+    margin-top: 48px;
+  }
+  .inner-item1 {
+    height: 288px; margin-top: 42px;
+    background: url(../img/slide6/c1.png) no-repeat center;
+    background-size: 636px 288px;
+  }
+  .inner-item2 {
+    height: 156px;
+    background: url(../img/slide6/c2.png) no-repeat center;
+    background-size: 185px 156px;
+  }
+  .inner-item3 {
+    height: 468px;
+    background: url(../img/slide6/c3.png) no-repeat center;
+    background-size: 636px 468px;
+  }
+}

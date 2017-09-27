@@ -1,0 +1,12 @@
+.slide9 {
+  .slide-title {
+    height: 100px;
+    background: url(../img/slide9/slide-tit-bg.png) no-repeat center center;
+    background-size: 480px 100px;
+  }
+  .inner-item1 {
+    height: 787px; margin-top: 28px;
+    background: url(../img/slide9/c1.png) no-repeat center;
+    background-size: 629px 787px;
+  }
+}
