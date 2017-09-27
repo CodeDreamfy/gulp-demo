@@ -1,4 +1,5 @@
 @import "./lib/normalize.css";
+@import "./lib/swiper-3.4.2.min.css";
 @import "./lib/reset.css";
 
 @import "./module/index.css";
