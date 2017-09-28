@@ -1,0 +1,58 @@
+.slide11 {
+  .star {
+    width: 715px; height: 1093px; position: absolute; top: 50%; left: 50%;
+    margin: -546px -358px;
+    background: url(../img/slide11/star.png) no-repeat;
+    background-size: 715px 1093px; z-index: 1; opacity: 0;
+  }
+  .earth {
+    position: absolute; top: 50%; left: 50%; z-index: 2;
+    width: 548px; height: 541px; margin: -270px -274px;
+    background: url(../img/slide11/earth.png) no-repeat;
+    background-size: 548px 541px;
+  }
+  .slide-tit-wrap {
+    height: 148px; position: relative; z-index: 3;
+    transform: translateY(0);
+    h2 {
+      font-size: 68px; color: #fff; text-align: center; opacity: 0;
+    }
+    .openiot {
+      width: 395px; height: 42px; margin: 36px auto;
+      background: url(../img/slide11/openiot.png) no-repeat 0 0;
+      background-size: 393px 756px; opacity: 0;
+    }
+  }
+  &.animate {
+    .slide-tit-wrap {
+      animation: slideTit 800ms;
+      h2 { opacity: 1;}
+    }
+    .openiot {
+      animation: iotanimate 800ms 700ms steps(18) backwards; opacity: 1;
+    }
+    .earth {
+      animation: earthAni 10000ms 1.5s infinite;
+    }
+    .star {
+      animation: starAni 3000ms 1.6s infinite alternate;
+    }
+  }
+}
+
+@keyframes starAni {
+  from { opacity: 0.1; }
+  to { opacity: 1; }
+}
+@keyframes earthAni {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg);}
+}
+@keyframes slideTit {
+  from { transform: translateY(-200px); opacity: 0;}
+  to { transform: translateY(0); opacity: 1;}
+}
+@keyframes iotanimate {
+  from { background-position: 0 0; opacity: 0;}
+  to { background-position: 0 -756px; opacity: 1;}
+}

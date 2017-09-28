@@ -16,16 +16,25 @@
       document.documentElement.firstElementChild.appendChild(vpMeta);
     }
   </script>
+  <link rel="stylesheet" href="./lib/css/swiper-3.4.2.min.css">
   <link rel="stylesheet" href="./dist/css/main.min.css">
 </head>
 <body>
   <div class="wrapper">
     <div class="swiper-container" id="indexSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide slide1">
-          <div class="title"></div>
+      <div class="swiper-wrapper index-slide-wrap">
+        <div class="swiper-slide slide1 animate">
+          <div class="wrap-center">
+            <div class="title">
+              <h1>中国移动物联网开放平台</h1>
+              <div class="onenet"></div>
+            </div>
+          </div>
           <div class="animate-bg"></div>
-          <div class="arrow-tit"></div>
+          <div class="arrow-tit">
+            <p>赋能行业发展</p>
+            <p>携手万物互联</p>
+          </div>
         </div>
         <div class="swiper-slide slide2">
           <div class="wrap-center">
@@ -129,29 +138,76 @@
                 <a href="javascript:;" class="sw-tab6">智慧农业</a>
               </div>
               <div class="switch-container">
-                <div class="switch-item item1 active">
-                  <div class="swiper-container switchItem1">
+                <div class="tranform-wrap">
+                  <div class="switch-item item1 active">
+                    <div class="swiper-container switch-item1">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide sw-i-1"></div>
+                          <div class="swiper-slide sw-i-2"></div>
+                        </div>
+                        <div class="swiper-pagination switch-page switch-item1-page"></div>
+                    </div>
+                  </div>
+                  <div class="switch-item item2">
+                    <div class="swiper-container switch-item2">
                       <div class="swiper-wrapper">
-                        <div class="swiper-slide">111111</div>
-                        <div class="swiper-slide">22222</div>
+                        <div class="swiper-slide sw-i-1"></div>
+                        <div class="swiper-slide sw-i-2"></div>
                       </div>
+                      <div class="swiper-pagination switch-page switch-item2-page"></div>
+                    </div>
+                  </div>
+                  <div class="switch-item item3">
+                    <div class="swiper-container switch-item3">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide sw-i-1"></div>
+                        <div class="swiper-slide sw-i-2"></div>
+                      </div>
+                      <div class="swiper-pagination switch-page switch-item3-page"></div>
+                    </div>
+                  </div>
+                  <div class="switch-item item4">
+                    <div class="swiper-container switch-item4">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide sw-i-1"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="switch-item item5">
+                    <div class="swiper-container switch-item5">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide sw-i-1"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="switch-item item6">
+                    <div class="swiper-container switch-item6">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide sw-i-1"></div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="switch-item item2">222</div>
-                <div class="switch-item item3">333</div>
-                <div class="switch-item item4">444</div>
-                <div class="switch-item item5">555</div>
-                <div class="switch-item item6">666</div>
               </div>
             </div>
           </div>
+        </div>
+        <div class="swiper-slide slide11">
+            <div class="wrap-center">
+              <div class="star"></div>
+              <div class="earth"></div>
+              <div class="slide-tit-wrap">
+                <h2>一切从连接开始</h2>
+                <div class="openiot"></div>
+              </div>
+            </div>
         </div>
       </div>
     </div>
     <div class="arrow"></div>
   </div>
-  <script src="./src/lib/js/jquery.js"></script>
-  <script src="./src/lib/js/swiper.min.js"></script>
+  <script src="./lib/js/jquery.js"></script>
+  <script src="./lib/js/swiper.min.js"></script>
   <script src="./dist/js/main.min.js"></script>
 </body>
 </html>

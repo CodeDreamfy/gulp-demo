@@ -42,28 +42,29 @@
       background: url(../img/slide2/slide2-c7.png) no-repeat left;
       background-size: 439px 87px;
     }
-    &.animate {
-      .inner-item1 {
-        animation: transformRight 600ms 300ms forwards;
-      }
-      .inner-item2 {
-        animation: transformRight 600ms 400ms forwards;
-      }
-      .inner-item3 {
-        animation: transformRight 600ms 500ms forwards;
-      }
-      .inner-item4 {
-        animation: transformRight 600ms 600ms forwards;
-      }
-      .inner-item5 {
-        animation: transformRight 600ms 700ms forwards;
-      }
-      .inner-item6 {
-        animation: transformRight 600ms 800ms forwards;
-      }
-      .inner-item7 {
-        animation: transformRight 600ms 900ms forwards;
-      }
+    
+  }
+  &.animate {
+    .inner-item1 {
+      animation: transformRight 600ms 300ms forwards;
+    }
+    .inner-item2 {
+      animation: transformRight 600ms 400ms forwards;
+    }
+    .inner-item3 {
+      animation: transformRight 600ms 500ms forwards;
+    }
+    .inner-item4 {
+      animation: transformRight 600ms 600ms forwards;
+    }
+    .inner-item5 {
+      animation: transformRight 600ms 700ms forwards;
+    }
+    .inner-item6 {
+      animation: transformRight 600ms 800ms forwards;
+    }
+    .inner-item7 {
+      animation: transformRight 600ms 900ms forwards;
     }
   }
 }

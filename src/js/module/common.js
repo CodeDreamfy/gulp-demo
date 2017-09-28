@@ -1,17 +1,11 @@
 function initSwiper(){
-  const $aSlide = $('.swiper-slide');
+  const $aSlide = $('.index-slide-wrap > .swiper-slide');
   const indexSwiper = new Swiper('#indexSwiper', {
     direction: 'vertical',
-    initialSlide: 9,
-    onSlideChangeStart: ({activeIndex})=>{
-      if(activeIndex != 0) {
-        $aSlide.eq(activeIndex).find('.slide-wrap').removeClass('animate')
-      }
-    },
+    //initialSlide: 9,
     onSlideChangeEnd: function({activeIndex}){
-      if(activeIndex != 0) {
-        $aSlide.eq(activeIndex).find('.slide-wrap').addClass('animate')
-      }
+      console.log($aSlide.eq(activeIndex))
+      $aSlide.eq(activeIndex).addClass('animate').siblings().removeClass('animate')
     }
   })
   return indexSwiper
