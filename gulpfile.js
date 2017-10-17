@@ -23,6 +23,9 @@ const filter = require("gulp-filter");
 
 const webpack = require('webpack-stream');
 
+const rev = require('gulp-rev');
+const revCollector = require('gulp-rev-collector'); 
+
 gulp.task('postcss', ()=>{
   // const file = filter('src/css/lib/*', {restore: true});
   const plugins = [
@@ -37,7 +40,10 @@ gulp.task('postcss', ()=>{
     .on('error', errorHandler)
     .pipe(concat('main.css'))
     .pipe(rename({suffix: '.min'}))
+    .pipe(rev()) 
     .pipe(gulp.dest('./dist/css/'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('rev-css'))
     .pipe(notify("css build success!"));
 });
 
@@ -82,13 +88,19 @@ gulp.task('clean', ()=> {
   return del(['./dist/**/*'])
 })
 
-gulp.task('watch', ()=> {
-  gulp.watch('./src/css/**/*.css', ['postcss']);
-  gulp.watch('./src/js/**/*.js', ['toes']);
-  gulp.watch('./src/img/**/*', ['imgmin']);
+gulp.task('rev-html', ['postcss'],()=>{
+  gulp.src(['rev-css/*.json', './index.html'])
+    .pipe(revCollector())
+    .pipe(gulp.dest('./'))
 })
 
-gulp.task('default', ['clean', 'postcss', 'toes','imgmin', 'watch'], function(){
+gulp.task('watch', ()=> {
+  gulp.watch('./src/css/**/*.css', ['postcss','rev-html']);
+  gulp.watch('./src/js/**/*.js', ['toes']);
+  // gulp.watch('./src/img/**/*', ['imgmin']);
+})
+
+gulp.task('default', ['clean', 'postcss', 'rev-html','toes', 'watch'], function(){
   //gulp.task('greet', shell.task('anywhere'))
 });
 
